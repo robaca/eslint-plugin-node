@@ -233,6 +233,27 @@ new RuleTester({
         },
         {
             filename: fixture("test.js"),
+            code: "import './esm-typescript-file'",
+            output: "import './esm-typescript-file.js'",
+            options: ["always", { esm: true }],
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import './esm-typescript-react'",
+            output: "import './esm-typescript-react.js'",
+            options: ["always", { esm: true }],
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
+            code: "import './esm-typescript-lib'",
+            output: "import './esm-typescript-lib.js'",
+            options: ["always", { esm: true }],
+            errors: [{ messageId: "requireExt", data: { ext: ".js" } }],
+        },
+        {
+            filename: fixture("test.js"),
             code: "import './c.mjs'",
             output: "import './c'",
             options: ["never", { ".json": "always" }],
